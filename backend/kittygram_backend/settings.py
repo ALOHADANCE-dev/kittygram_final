@@ -3,6 +3,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Я хотел убрал эти переменные в .env, но не проходили джанго тесты при деплое
+# и я не знаю как это пофиксить, можно ли в теории их в секреты добавить?
+
 SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
 
 DEBUG = True
