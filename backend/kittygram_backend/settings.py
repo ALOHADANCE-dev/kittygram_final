@@ -3,16 +3,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Я хотел убрал эти переменные в .env, но не проходили джанго тесты при деплое
-# и я не знаю как это пофиксить, можно ли в теории их в секреты добавить?
-
 SECRET_KEY = os.getenv('SECRET_KEY', 'heresomsesecretkey')
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', ['127.0.0.1', 'localhost'])
-
-print(BASE_DIR)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
