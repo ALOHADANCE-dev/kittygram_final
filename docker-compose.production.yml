@@ -12,7 +12,8 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   backend:
-    needs: db
+    depends_on:
+      - db
     image: yggdora/kittygram_backend
     env_file: .env
     volumes:
@@ -20,7 +21,8 @@ services:
       - media:/app/media
 
   frontend:
-    needs: backend
+    depends_on:
+      - backend
     env_file: .env
     image: yggdora/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
@@ -28,7 +30,8 @@ services:
       - static:/frontend_static
 
   gateway:
-    needs: backend
+    depends_on:
+      - backend
     image: yggdora/kittygram_gateway
     env_file: .env
     ports:
