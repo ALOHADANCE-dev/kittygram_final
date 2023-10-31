@@ -165,6 +165,9 @@ jobs:
           sudo docker compose -f docker-compose.production.yml up -d
           sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
           sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
+          sudo docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+  # в общем, я не понял как это можно изменить. Попробовал изменить путь сбора файла сразу в /backend_static/static/, но
+  # видимо, не получилось. Как это сделать?
   
   send_message:
     runs-on: ubuntu-latest
